@@ -1,2 +1,2 @@
-# SQLi
-SQL Injections
+# Portswigger Labs
+Practice Labs
