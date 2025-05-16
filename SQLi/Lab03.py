@@ -4,7 +4,7 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-proxies = {'http' : 'http://10.0.2.5:8080', 'http' : 'http://10.0.2.5:8080'}
+proxies = {'http' : 'http://10.0.2.5:8080', 'https' : 'http://10.0.2.5:8080'}
 
 def exploit_sqli(url):
 	uri = '/filter?category=Gifts'
